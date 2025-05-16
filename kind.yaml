@@ -8,6 +8,10 @@ nodes:
         nodeRegistration:
           kubeletExtraArgs:
             node-labels: "CriticalAddonsOnly=true,eks-k8s-version=1.29"
+    extraPortMappings:
+      - containerPort: 30000
+        hostPort: 8000
+        protocol: TCP
 
   - role: worker
     kubeadmConfigPatches:
